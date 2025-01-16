@@ -60,7 +60,12 @@ public class CharacterFrequencyCounter {
      */
     public double getRelativePercentage(char c) {
         c = Character.toLowerCase(c);
-        int charCount = frequencyMap.get(c);
+
+        int charCount = 0;
+        //makes it null if you try to get the percentage of a char that isn't in the string
+        if(frequencyMap.get(c) != null) {
+            charCount = frequencyMap.get(c);
+        }
 
         return ((double) charCount / totalCharacterCount) * 100;
     }
